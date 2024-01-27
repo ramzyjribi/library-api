@@ -9,6 +9,10 @@ import javax.persistence.Table;
 @Table(name = "CATEGORY")
 public class Category {
 	
+	
+
+	
+
 	public Category() {
 	}
 	
@@ -21,7 +25,8 @@ public class Category {
 	private String code;
 	
 	private String label;
-
+	
+	
 	@Id
 	@Column(name = "CODE")
 	public String getCode() {

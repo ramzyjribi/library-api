@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IBookDao extends JpaRepository<Book, Integer> {
 	
+		
 	Book findByIsbnIgnoreCase(String isbn);
 	
 	public List<Book> findByTitleLikeIgnoreCase(String title);

@@ -23,19 +23,41 @@ import com.gkemayo.library.loan.Loan;
 @Table(name = "BOOK")
 public class Book {
 	
+	public String getIsbn() {
+		return Isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		Isbn = isbn;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Boolean getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(Boolean ordered) {
+		this.ordered = ordered;
+	}
+
 	private Integer id;
 
 	private String title;
 	
-	private String isbn;
-	
-	private LocalDate releaseDate;
-	
-	private LocalDate registerDate;
-	
-	private Integer totalExamplaries;
-	
 	private String author;
+	
+	private Double price;
+	
+	private Boolean ordered;	
+	
+	private String Isbn;
 	
 	private Category category;
 	
@@ -61,42 +83,7 @@ public class Book {
 		this.title = title;
 	}
 
-	@Column(name = "ISBN", nullable = false, unique = true)
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-
-	@Column(name = "RELEASE_DATE", nullable = false)
-	public LocalDate getReleaseDate() {
-		return releaseDate;
-	}
-
-	public void setReleaseDate(LocalDate releaseDate) {
-		this.releaseDate = releaseDate;
-	}
-	
-	@Column(name = "REGISTER_DATE", nullable = false)
-	public LocalDate getRegisterDate() {
-		return registerDate;
-	}
-
-	public void setRegisterDate(LocalDate registerDate) {
-		this.registerDate = registerDate;
-	}
-
-	@Column(name = "TOTAL_EXAMPLARIES")
-	public Integer getTotalExamplaries() {
-		return totalExamplaries;
-	}
-
-	public void setTotalExamplaries(Integer totalExamplaries) {
-		this.totalExamplaries = totalExamplaries;
-	}
-
+		
 	@Column(name = "AUTHOR")
 	public String getAuthor() {
 		return author;
@@ -130,7 +117,7 @@ public class Book {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
+		
 		return result;
 	}
 
@@ -148,11 +135,7 @@ public class Book {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (isbn == null) {
-			if (other.isbn != null)
-				return false;
-		} else if (!isbn.equals(other.isbn))
-			return false;
+		
 		return true;
 	}
 		

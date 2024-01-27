@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface IBookService {
 	
+	public List<Book> getAll();
+	
 	public Book saveBook(Book book);
 	
 	public Book updateBook(Book book);

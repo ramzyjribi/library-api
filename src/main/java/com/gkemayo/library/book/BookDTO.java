@@ -10,26 +10,45 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(value = "Book Model")
 public class BookDTO implements Comparable<BookDTO>{
 	
+	public String getIsbn() {
+		return Isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		Isbn = isbn;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Boolean getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(Boolean ordered) {
+		this.ordered = ordered;
+	}
+
 	@ApiModelProperty(value = "Book id")
 	private Integer id;
 
 	@ApiModelProperty(value = "Book title")
 	private String title;
 	
-	@ApiModelProperty(value = "Book isbn")
-	private String isbn;
-	
-	@ApiModelProperty(value = "Book release date by the editor")
-	private LocalDate releaseDate;
-	
-	@ApiModelProperty(value = "Book register date in the library")
-	private LocalDate registerDate;
-	
-	@ApiModelProperty(value = "Book total examplaries")
-	private Integer totalExamplaries;
 	
 	@ApiModelProperty(value = "Book author")
 	private String author;
+	
+    private Double price;
+	
+	private Boolean ordered;	
+	
+	private String Isbn;
 	
 	@ApiModelProperty(value = "Book category")
 	private CategoryDTO category;
@@ -50,37 +69,20 @@ public class BookDTO implements Comparable<BookDTO>{
 		this.title = title;
 	}
 
-	public String getIsbn() {
-		return isbn;
-	}
+	
+	
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
+	
 
-	public LocalDate getReleaseDate() {
-		return releaseDate;
-	}
+	
 
-	public void setReleaseDate(LocalDate releaseDate) {
-		this.releaseDate = releaseDate;
-	}
+	
 
-	public LocalDate getRegisterDate() {
-		return registerDate;
-	}
+	
 
-	public void setRegisterDate(LocalDate registerDate) {
-		this.registerDate = registerDate;
-	}
+	
 
-	public Integer getTotalExamplaries() {
-		return totalExamplaries;
-	}
-
-	public void setTotalExamplaries(Integer totalExamplaries) {
-		this.totalExamplaries = totalExamplaries;
-	}
+	
 
 	public String getAuthor() {
 		return author;

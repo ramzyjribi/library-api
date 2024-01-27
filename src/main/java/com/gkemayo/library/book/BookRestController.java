@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,12 +35,19 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/rest/book/api")
 @Api(value = "Book Rest Controller: contains all operations for managing books")
+@CrossOrigin(origins = "http://localhost:4200")
 public class BookRestController {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(BookRestController.class);
 
 	@Autowired
 	private BookServiceImpl bookService;
+	
+	@GetMapping("/books")
+	public ResponseEntity<List<Book>> getBooks(){
+		List<Book> allBooks = bookService.getAll();
+		return new ResponseEntity<List<Book>>(allBooks, HttpStatus.OK);
+	}
 
 	@PostMapping("/addBook")
 	@ApiOperation(value = "Add a new Book in the Library", response = BookDTO.class)
@@ -151,7 +159,7 @@ public class BookRestController {
 		ModelMapper mapper = new ModelMapper();
 		Book book = mapper.map(bookDTO, Book.class);
 		book.setCategory(new Category(bookDTO.getCategory().getCode(), ""));
-		book.setRegisterDate(LocalDate.now());
+		
 		return book;
 	}
 

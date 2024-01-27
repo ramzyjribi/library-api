@@ -6,6 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(value = "Category Model")
 public class CategoryDTO implements Comparable<CategoryDTO> {
 
+	
+
+	
+
 	public CategoryDTO() {
 	}
 	
@@ -20,6 +24,8 @@ public class CategoryDTO implements Comparable<CategoryDTO> {
 
 	@ApiModelProperty(value = "Category label")
 	private String label;
+	
+	
 
 	public String getCode() {
 		return code;

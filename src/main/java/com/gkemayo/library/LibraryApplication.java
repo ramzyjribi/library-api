@@ -1,8 +1,13 @@
 package com.gkemayo.library;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import com.gkemayo.library.book.Book;
+import com.gkemayo.library.book.IBookService;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -15,7 +20,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-public class LibraryApplication {
+public class LibraryApplication implements CommandLineRunner {
+	
+	@Autowired
+	private IBookService bookService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(LibraryApplication.class, args);
@@ -39,5 +47,12 @@ public class LibraryApplication {
             .build();
 
     }
+
+	@Override
+	public void run(String... args) throws Exception {
+			
+				
+		
+	}
 
 }

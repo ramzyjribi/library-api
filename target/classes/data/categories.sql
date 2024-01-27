@@ -12,3 +12,7 @@ insert into category values ('POL', 'Politique');
 insert into category values ('SOC', 'Sociologie');
 insert into category values ('ECO', 'Economie et Finance');
 insert into category values ('JOU', 'Journal, Magazine');
+
+
+
+insert into book values (1,'author1','22kjj44',true,5,'informatique','INF');
