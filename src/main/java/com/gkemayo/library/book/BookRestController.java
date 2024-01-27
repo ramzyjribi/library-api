@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/rest/book/api")
 @Api(value = "Book Rest Controller: contains all operations for managing books")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://library-bq6z.onrender.com")
 public class BookRestController {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(BookRestController.class);
